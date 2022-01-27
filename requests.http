@@ -1,3 +1,9 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NDMzMDUzMDZ9.QO4-LwObgCMduWmw-6e1Y0pfi25WV7scc5GvBCRZ0I0
+
+@domain =
+
+
+### login(gets us a jwt)
 POST http://localhost:3000/sessions
 Content-Type: application/json
 
@@ -5,13 +11,13 @@ Content-Type: application/json
   "email": "adam@gmail.com",
   "password": "password"
 }
-###
+### USER CREATE
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Adams Reef",
-  "email": "adam@gmail.com",
+  "name": "Jasons Crabs",
+  "email": "jcrabs@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -20,17 +26,20 @@ Content-Type: application/json
 #ORDER CREATE
 POST http://localhost:3000/orders
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NDMyMjI4ODF9.jXooa4LG8JOz9zWCM5y2M6vUtwZDRD-kky2DPI6E4KA
+Authorization: Bearer {{ jwt }}
 
 {
-  "product_id": 1,
-  "quantity": 3
+  "product_id": 3,
+  "quantity": 5
 }
 
 ###
 #Order SHOW
-GET http://localhost:3000/orders/1
+GET http://localhost:3000/orders/3
+# Authorization: Bearer {{ jwt }}
 
 ###
 #ORDER INDEX
 GET http://localhost:3000/orders
+Authorization: Bearer {{ jwt }}
+

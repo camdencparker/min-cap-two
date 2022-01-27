@@ -1,0 +1,25 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NDMzMDUzMDZ9.QO4-LwObgCMduWmw-6e1Y0pfi25WV7scc5GvBCRZ0I0
+
+###
+# Index
+GET http://localhost:3000/products
+
+###
+#Update
+PATCH http://localhost:3000/products/2
+Content-Type: application/json
+Authorization: {{ jwt }}
+
+{
+  "name": "SeaHorse"
+}
+
+###
+#CREATE 
+POST http://localhost:3000/products
+Content-Type: application/json
+Authorization: {{ jwt }}
+
+{
+  
+}

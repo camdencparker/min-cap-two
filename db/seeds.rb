@@ -34,4 +34,7 @@
 # ])
 
 
+#Need to add freshwater fish
 
+# # Product.create!([
+#      {name: "Rummy Nose Tetra", price: 2.50, description: "Beautiful schooling fish", quantity: 1000, supplier_id: 2}, {}])
