@@ -1,10 +1,10 @@
 @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NDMzMDUzMDZ9.QO4-LwObgCMduWmw-6e1Y0pfi25WV7scc5GvBCRZ0I0
 
-@domain =
+@domain = http://localhost:3000
 
 
 ### login(gets us a jwt)
-POST http://localhost:3000/sessions
+POST {{ domain }}/sessions
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
   "password": "password"
 }
 ### USER CREATE
-POST http://localhost:3000/users
+POST {{ domain }}/users
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ###
 #ORDER CREATE
-POST http://localhost:3000/orders
+POST {{ domain }}/orders
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
@@ -35,11 +35,21 @@ Authorization: Bearer {{ jwt }}
 
 ###
 #Order SHOW
-GET http://localhost:3000/orders/3
+GET {{ domain }}/orders/3
 # Authorization: Bearer {{ jwt }}
 
 ###
 #ORDER INDEX
-GET http://localhost:3000/orders
+GET {{ domain }}/orders
 Authorization: Bearer {{ jwt }}
 
+
+###
+#CARTED_PRODUCTS CREATE
+POST {{ domain }}/carted_products
+Content-Type: application/json
+
+{
+  "product_id": 2,
+  "user_id": 4
+}
